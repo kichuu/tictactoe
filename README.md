@@ -1,1 +1,2 @@
 # tictactoe
+added wincheck function
