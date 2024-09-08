@@ -1,0 +1,19 @@
+#game-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    justify-content: center;
+    height: 50vh;
+    width: 50vw;
+    border: 3px solid black;
+}
+
+.ticGrid{
+    height: calc(50vh / 3);
+    width: calc(50vw / 3);
+    border: 1px solid black;
+}
+
+.okok{
+    background-color: red;
+}
