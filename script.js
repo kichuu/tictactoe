@@ -1,10 +1,12 @@
 console.log("testing");
+let currentPlayer = "X";
 let Gameboard = {
   board: [
     ["", "", ""],
     ["", "", ""],
     ["", "", ""],
   ],
+
 
   displayBoard: function () {
     for (let row = 0; row < this.board.length; row++) {
@@ -16,18 +18,22 @@ let Gameboard = {
       this.board[row][col] = "X";
       this.checkWin("X");
       this.checkDraw();
-    } else {
+    } 
+    else {
       console.log("already occpied");
     }
+    this.updateDisplayBoard()
   },
   markO: function (row, col) {
     if (this.board[row][col] == "") {
       this.board[row][col] = "O";
       this.checkWin("O");
       this.checkDraw();
+      
     } else {
       console.log("already occpied");
     }
+    this.updateDisplayBoard()
   },
   checkDraw: function () {
     if (this.checkWin() !== true) {
@@ -42,8 +48,11 @@ let Gameboard = {
       }
       if (isDraw) {
         console.log("It's a draw");
+        this.restartGame()
       }
     }
+    
+    this.updateDisplayBoard()
   },
   checkWin: function (player) {
     for (let row = 0; row < this.board.length; row++) {
@@ -98,6 +107,7 @@ let Gameboard = {
         this.board[row][col] = "";
       }
     }
+    this.updateDisplayBoard()
   },
   updateDisplayBoard: function () {
     const divs = document.querySelectorAll(".ticGrid");
@@ -120,4 +130,25 @@ for (let row = 0; row < 3; row++) {
     gameContainer.appendChild(gameDiv);
   }
 }
+
+const gameCells = document.querySelectorAll(".ticGrid");
+gameCells.forEach(cell => {
+  cell.addEventListener("click", function() {
+    const row = cell.dataset.row;
+    const col = cell.dataset.col;  
+    if (Gameboard.board[row][col]=="") {
+      if (currentPlayer === "X") {
+        Gameboard.markX(row, col);
+        currentPlayer = "O"
+    }
+    else{
+      Gameboard.markO(row,col)
+      currentPlayer = "X"
+    }
+  }
+       
+  });
+});
+
+
 
