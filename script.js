@@ -150,5 +150,9 @@ gameCells.forEach(cell => {
   });
 });
 
-
-
+const RestartButton = document.createElement("button")
+RestartButton.classList.add("restart-button")
+RestartButton.addEventListener("click" , ()=>Gameboard.restartGame())
+const maingameDiv = document.querySelector(".game")
+maingameDiv.appendChild(RestartButton)
+RestartButton.innerHTML="Restart"
