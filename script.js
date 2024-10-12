@@ -115,6 +115,13 @@ let Gameboard = {
       const row = div.dataset.row;
       const col = div.dataset.col;
       div.textContent = this.board[row][col];
+      div.classList.remove("playerX", "playerO")
+      if(this.board[row][col] == "X"){
+        div.classList.add("playerX")
+      }
+      else if(this.board[row][col]== "O"){
+        div.classList.add("playerO")
+      }
     });
   },
   
