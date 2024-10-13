@@ -52,7 +52,7 @@ let Gameboard = {
       if (isDraw) {
         resultDisplay.textContent += "It's a Draw!"
         console.log("It's a draw");
-        this.restartGame()
+        setTimeout(() => {this.restartGame()} ,3000)
       }
     }
     
@@ -66,7 +66,7 @@ let Gameboard = {
         this.board[row][2] == player
       ) {
         console.log(`${player} wins`);
-        this.restartGame();
+        setTimeout(() => {this.restartGame()} ,3000)
         console.log("new game");
         return true;
       }
@@ -79,7 +79,7 @@ let Gameboard = {
         this.board[2][col] == player
       ) {
         console.log(`${player} wins`);
-        this.restartGame();
+        setTimeout(() => {this.restartGame()} ,3000)
         console.log("new game");
         return true;
       }
@@ -91,7 +91,7 @@ let Gameboard = {
     ) {
       
       console.log(`${player} wins`);
-      this.restartGame();
+      setTimeout(() => {this.restartGame()} ,3000)
       resultDisplay.textContent = `${player} won`
       console.log("new game");
       return true;
@@ -104,7 +104,7 @@ let Gameboard = {
       resultDisplay.textContent = `Congrats ${player} Won!`
 
       console.log(`${player} wins`);
-      this.restartGame();
+      setTimeout(() => {this.restartGame()} ,3000)
       console.log("new game");
       return true;
     } else console.log("");
