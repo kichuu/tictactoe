@@ -1,3 +1,6 @@
+const resultDisplay = document.getElementById("game-result")
+resultDisplay.classList.add("gamee-result")
+
 console.log("testing");
 let currentPlayer = "X";
 let Gameboard = {
@@ -47,6 +50,7 @@ let Gameboard = {
         }
       }
       if (isDraw) {
+        resultDisplay.textContent += "It's a Draw!"
         console.log("It's a draw");
         this.restartGame()
       }
@@ -85,8 +89,10 @@ let Gameboard = {
       this.board[1][1] == player &&
       this.board[2][2] == player
     ) {
+      
       console.log(`${player} wins`);
       this.restartGame();
+      resultDisplay.textContent = `${player} won`
       console.log("new game");
       return true;
     }
@@ -95,6 +101,8 @@ let Gameboard = {
       this.board[1][1] == player &&
       this.board[2][0] == player
     ) {
+      resultDisplay.textContent = `Congrats ${player} Won!`
+
       console.log(`${player} wins`);
       this.restartGame();
       console.log("new game");
@@ -157,9 +165,12 @@ gameCells.forEach(cell => {
   });
 });
 
+
+
 const RestartButton = document.createElement("button")
 RestartButton.classList.add("restart-button")
 RestartButton.addEventListener("click" , ()=>Gameboard.restartGame())
 const maingameDiv = document.querySelector(".game")
 maingameDiv.appendChild(RestartButton)
 RestartButton.innerHTML="Restart"
+
