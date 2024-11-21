@@ -1,3 +1,5 @@
+console.log("hi")
+
 const resultDisplay = document.getElementById("game-result")
 resultDisplay.classList.add("gamee-result")
 
@@ -91,8 +93,8 @@ let Gameboard = {
     ) {
       
       console.log(`${player} wins`);
-      setTimeout(() => {this.restartGame()} ,3000)
       resultDisplay.textContent = `${player} won`
+      setTimeout(() => {this.restartGame()} ,3000)
       console.log("new game");
       return true;
     }
